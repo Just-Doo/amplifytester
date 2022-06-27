@@ -1,0 +1,11 @@
+input AMPLIFY {
+    globalAuthRule: AuthRule = { allow: public }
+}
+
+type Tweet @model {
+    id: ID!
+    text: String!
+    author: String!
+}
+
+type
