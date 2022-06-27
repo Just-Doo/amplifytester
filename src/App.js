@@ -3,7 +3,8 @@ import { API, graphqlOperation } from "aws-amplify";
 import { listTweets } from "./graphql/queries"
 import { createTweet } from "./graphql/mutations";
 import { onCreateTweet } from "./graphql/subscriptions";
-    
+import Home from '../pages/home.js';
+
 function App() {
   const [ formData, setFormData ] = useState({
     author : "",
@@ -54,6 +55,7 @@ function App() {
 
   return (
     <main className='container'>
+      <Home/>
       <h1>Amplify Tester</h1>
       <section>
         <h3>Tweet Something!</h3>
@@ -77,13 +79,13 @@ function App() {
 
       <hr />
       <section>
-        <h3>Timeline Tlqkv</h3>
+        <h3>Timeline</h3>
         <div>
           {tweets.map((tweet) => (
             <article key={tweet.id}>
               <hgroup>
                 <h4>{tweet.text}</h4>
-                <h5>{tweet.author}</h5>
+                <h5>- by {tweet.author}</h5>
               </hgroup>
             </article>
           ))}
